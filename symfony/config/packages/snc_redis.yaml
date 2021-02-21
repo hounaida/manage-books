@@ -1,0 +1,12 @@
+snc_redis:
+    clients:
+        default:
+            type: predis
+            alias: default
+            dsn: "%env(string:REDIS_URL)%"
+            logging: '%kernel.debug%'
+            options:
+                prefix: "%env(string:APP_NAME)%_"
+    session:
+        client: default
+        prefix: "session_"

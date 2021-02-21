@@ -1,0 +1,14 @@
+liip_imagine:
+    driver: "gd"
+    resolvers:
+        default:
+            web_path: ~
+
+    filter_sets:
+        cache: ~
+        squared_thumbnail_small:
+            # list of transformations to apply (the "filters")
+            filters:
+                thumbnail: { size: [50, 50], mode: outbound }
+
+

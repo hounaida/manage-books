@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HomePage{% endblock %}
+
+{% block body %}
+    {% for book in pagination %}
+        <h1>
+            <a href="{{ path('book_details', {'id': book.id}) }}">
+                {{ book.title }}
+            </a>
+        </h1>
+        <p>{{ book.author }}</p>
+        <img src="{{ asset('uploads/covers/' ~ book.cover) | imagine_filter('squared_thumbnail_small') }}"/>
+        <p>{{ book.descritpion|u.truncate(100, '...', false) }}</p>
+        <a href="{{ path('book_details', {'id': book.id}) }}">
+            Read More
+        </a>
+    {% endfor %}
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+{% endblock %}

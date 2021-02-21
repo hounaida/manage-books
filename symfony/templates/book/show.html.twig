@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ book.title }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ book.title }}</h1>
+    <p>{{ book.author }}</p>
+    <img src="{{ asset('uploads/covers/' ~ book.cover) | imagine_filter('squared_thumbnail_small') }}" />
+    <p>{{ book.descritpion }}</p>
+{% endblock %}
